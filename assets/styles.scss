@@ -77,11 +77,20 @@ p {
 }
 
 .nav {
-  position: absolute;
+  position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
   right: 0;
   z-index: 999;
+  transition: all 0.3s ease-out;
+  &__right-side {
+    background-color: #252454;
+  }
+  &_colored {
+    background-color: #252454;
+    box-shadow: 0px 2px 10px #00000033;
+  }
 
   &__logo {
     width: 16.7rem;
@@ -307,9 +316,15 @@ a {
     color: var(--white);
     font-size: var(--size-normal);
     font-weight: var(--weight-medium);
-
-    &:hover {
-     text-decoration: underline;
+    &::after {
+      display: block;
+      content: "";
+      border-bottom: 1px solid var(--white);
+      transform: scale(0);
+      transition: all 250ms ease-in-out;
+    }
+    &:hover::after {
+     transform: scale(1);
     }
 
     &_contact {
@@ -319,6 +334,7 @@ a {
       transition: 0.2s ease-in;
       &:hover {
         background-color: var(--yellow-hover);
+        border-bottom: none;
         text-decoration: none;
       }
     }
@@ -444,6 +460,9 @@ li.lang-list__item:hover a {
   .nav {
     &__left-side {
       flex-basis: 10%;
+    }
+    &__right-side {
+      background-color: transparent;
     }
 
     &__link {
@@ -679,3 +698,4 @@ li.lang-list__item:hover a {
     }
   }
 }
+
