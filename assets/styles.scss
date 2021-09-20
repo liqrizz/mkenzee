@@ -367,7 +367,7 @@ ul.lang-list {
   display: none;
   position: absolute;
   background: white;
-  padding: 0 3rem;
+  padding: 0 1.5rem;
   border-radius: 0.3rem;
   left: calc(50% - 63px);
   top: 28px;
@@ -377,16 +377,37 @@ ul.lang-list {
 }
 
 li.lang-list__item a {
+  display: block;
   color: var(--black-medium);
   font-size: var(--size-normal);
+  transition: all 250ms;
 }
 
 li.lang-list__item {
   margin: 1rem 0;
 }
 
-li.lang-list__item:hover a {
-  text-decoration: underline;
+.ic-eng::before, .ic-rus::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+
+.ic-eng::before {
+  background: url("./eng-flag.svg") 0 0 no-repeat;
+  background-size: 20px;
+}
+
+.ic-rus::before {
+  background: url("./rus-flag.svg") 0 0 no-repeat;
+  background-size: 20px;
+}
+
+li.lang-list__item:hover a{
+  color: var(--blue-dark);
 }
 
 .footer {
